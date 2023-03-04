@@ -2,18 +2,18 @@
 
 html {
   box-sizing: border-box;
-  background-color:hsl(175, 26%, 41%);
+}
+
+body{
+  background-image: url("backgrounds/sunny-prairie.jpg");
+  font-family: 'Space Grotesk', sans-serif;
+  user-select: none;
 }
 
 *, *::before, *::after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
-}
-
-body {
-  font-family: 'Space Grotesk', sans-serif;
-  user-select: none;
 }
 
 /********************************* progress bar *********************************/
@@ -41,14 +41,17 @@ progress::-webkit-progress-value {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 20px;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .clock {
   margin-top: 50px;
   margin-bottom: 30px;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 10rem;
+  font-size: 9rem;
   line-height: 1;
   display: flex;
   align-items: center;
@@ -68,6 +71,12 @@ progress::-webkit-progress-value {
   padding: 8px 18px 10px 18px;
   text-align: center;
   background: none;
+  transition: background-color 0.5s ease;
+}
+
+.mode-button:hover {
+  background-color: white;
+  color: black;
 }
 
 .mode-button.active {
@@ -122,4 +131,60 @@ button:focus, button:active {
   .clock {
     font-size: 8rem;
   }
+}
+
+/********************************* settings modal *********************************/
+
+#settingsModal .modal-content {
+  background-color: black; /* dark grey background */
+  color: #fff; /* white text */
+  font-family: 'Space Grotesk', sans-serif;
+  padding: 10px;
+}
+
+/* nav pills */
+#settingsModal .nav-pills .nav-link {
+  background-color: black; 
+  color: white; 
+}
+
+#settingsModal .nav-pills .nav-link.active {
+  background-color: white; 
+  color: black; 
+}
+
+/* dropdown menu */
+#settingsModal .dropdown-menu {
+  background-color: #000; 
+  border-color: #7e7e7e; 
+  border-width: 1px;
+  color: #fff; 
+}
+
+#settingsModal .dropdown-menu .dropdown-item {
+  background-color: black;
+  color: #fff; 
+}
+
+
+#settingsModal .dropdown-menu .dropdown-item:hover {
+  background-color: rgb(80, 80, 80);
+  color: #fff; 
+}
+
+#save-color-btn, #save-theme-btn {
+  background-color: white; 
+  color: black; 
+  border: none;
+}
+
+#color-input{
+  border-color: rgb(194, 194, 194);
+}
+
+.dropdown-toggle::after {
+  position: absolute;
+  right: 0%;
+  margin-right: 20px;
+  margin-top: 9px;
 }

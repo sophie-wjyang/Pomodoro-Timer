@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <html>
+        <head>
+           <!-- <style>
+              button {
+                 font-size: 1.2rem;
+                 border-radius: 10px;
+                 margin: 20px;
+                 border: 2px solid blue;
+                 color: red;
+              }
+           </style> -->
+        </head>
+        <body>
+           <!-- <h2>Use the <i>color picker</i> to change a background color via color picker</h2> -->
+           <input id = "colorInput" type = "color">
+           <button onclick = "selectColor()"> Change the color </button>
+           <script>
+              function selectColor() {
+                 let color = document.getElementById('colorInput');
+                 // changing the background color
+                 document.body.style.backgroundColor = color.value;
+              }
+           </script>
+        </body>
+        </html>

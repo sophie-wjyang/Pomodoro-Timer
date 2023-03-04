@@ -8,77 +8,126 @@
 		<link rel="stylesheet" href="styles.css" />
 
 		<script src="https://kit.fontawesome.com/065b6a01b6.js" crossorigin="anonymous"></script>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
 	</head>
 
 	<body>
 		<main class="app">
-
-			<!-- progress bar -->
+			<!-- PROGRESS BAR -->
 			<progress id="js-progress" value="0"></progress>
 			<div class="progress-bar"></div>
 
-			<div class="timer">
-
-				<!-- buttons for different modes -->
+			<div class="timer ">
+				<!-- MODE BUTTONS -->
 				<div class="button-group mode-buttons" id="js-mode-buttons">
 					<!-- pomodoro button -->
-					<button
-						data-mode="pomodoro"
-						class="button active mode-button"
-						id="js-pomodoro"
-					>
-						pomodoro
-					</button>
+					<button data-mode="pomodoro" class="button active mode-button" id="js-pomodoro">pomodoro</button>
 
 					<!-- short break button -->
-					<button
-						data-mode="shortBreak"
-						class="button mode-button"
-						id="js-short-break"
-					>
-						short break
-					</button>
+					<button data-mode="shortBreak" class="button mode-button" id="js-short-break">short break</button>
 
 					<!-- long break button -->
-					<button
-						data-mode="longBreak"
-						class="button mode-button"
-						id="js-long-break"
-					>
-						long break
-					</button>
+					<button data-mode="longBreak" class="button mode-button" id="js-long-break">long break</button>
 				</div>
 
-				<!-- timer -->
-				<div class="clock" id="js-clock">
-					<span id="js-minutes">25</span>
+				<!-- CLOCK -->
+				<div class="clock mx-auto" id="js-clock">
+					<span id="js-minutes">45</span>
 					<span class="separator">:</span>
 					<span id="js-seconds">00</span>
 				</div>
 
+				<!-- START/STOP BUTTON, RESTART BUTTON, SETTINGS BUTTON -->
 				<div>
-					<button class="main-button" data-action="start" id="js-btn">
-						start
-					</button>
+					<button class="main-button" data-action="start" id="js-btn">start</button>
 
 					<button id="restart-button">
 						<i class="fa-solid fa-rotate-right"></i>
 					</button>
-	
-					<button id="settings-button">
+
+					<button id="settings-button" data-bs-toggle="modal" data-bs-target="#settingsModal">
 						<i class="fa-solid fa-gear"></i>
 					</button>
-
 				</div>
-
 			</div>
 
+			<!-- SETTINGS MODAL -->
+			<div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+					<div class="modal-content">
+
+						<div class="modal-header">
+							<h1 class="modal-title fs-5" id="exampleModalLabel">Settings</h1>
+							<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+						</div>
+
+						<div class="modal-body">
+							<!-- TABBED SIDEBAR -->
+							<div class="d-flex align-items-start">
+								<div class="nav flex-column nav-pills me-4 col-4" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+									<button class="nav-link active text-start" id="v-pills-theme-tab" data-bs-toggle="pill" data-bs-target="#v-pills-theme" type="button" role="tab" aria-controls="v-pills-theme" aria-selected="true">Theme</button>
+									<button class="nav-link text-start" id="v-pills-color-tab" data-bs-toggle="pill" data-bs-target="#v-pills-color" type="button" role="tab" aria-controls="v-pills-color" aria-selected="false">Colour</button>
+								</div>
+
+								<div class="tab-content flex-column col-8" id="v-pills-tabContent">
+
+									<!-- CHANGE THEME -->
+									<div class="tab-pane fade show active me-4" id="v-pills-theme" role="tabpanel" aria-labelledby="v-pills-theme-tab" tabindex="0">
+										<div class="dropdown">
+											<h6>Select theme:</h6>
+											<button class="btn btn-secondary dropdown-toggle text-start w-100" type="button" data-bs-toggle="dropdown" aria-expanded="false" id="theme-button">Sunny Prairie</button>
+											<ul class="dropdown-menu dropdown-menu-end w-100" id="theme-input">
+												<li><a class="dropdown-item" id="sunny-prairie" href="#">Sunny Prairie</a></li>
+												<li><a class="dropdown-item" id="secret-garden" href="#">Secret Garden</a></li>
+												<li><a class="dropdown-item" id="nighttime-cityscape" href="#">Nighttime Cityscape</a></li>
+												<li><a class="dropdown-item" id="romantic-bike-ride" href="#">Romantic Bike Ride</a></li>
+												<li><a class="dropdown-item" id="beach-house" href="#">Beach House</a></li>
+												<li><a class="dropdown-item" id="midnight-train-ride" href="#">Midnight Train Ride</a></li>
+												<li><a class="dropdown-item" id="mystic-forest" href="#">Mystic Forest</a></li>
+												<li><a class="dropdown-item" id="enchanted-woods" href="#">Enchanted Woods</a></li>
+												<li><a class="dropdown-item" id="rainy-evening" href="#">Rainy Evening</a></li>
+												<li><a class="dropdown-item" id="tranquil-darkness" href="#">Tranquil Darkness</a></li>
+											</ul>
+										</div>
+
+										<br><br><br><br><br><br>
+
+										<div class="modal-buttons d-flex justify-content-end">
+											<button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancel</button>
+											<button type="button" class="btn btn-primary" id="save-theme-btn" data-bs-dismiss="modal">Save theme</button>
+										</div>
+									</div>
+									
+									<!-- CHANGE COLOUR -->
+									<div class="tab-pane fade me-4" id="v-pills-color" role="tabpanel" aria-labelledby="v-pills-color-tab" tabindex="0">
+										<h6>Select colour:</h6>
+										<input type="color" id="color-input">
+
+										<br><br><br><br>
+
+										<div class="modal-buttons d-flex justify-content-end">
+											<button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancel</button>
+											<button type="button" class="btn btn-primary" id="save-color-btn" data-bs-dismiss="modal">Save colour</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						
+					</div>
+				</div>
+			</div>
 		</main>
-		<div class="hidden">
+
+		<!-- sound effects -->
+		<!-- <div class="hidden">
 			<audio src="backtowork.mp3" data-sound="pomodoro"></audio>
 			<audio src="break.mp3" data-sound="shortBreak"></audio>
 			<audio src="break.mp3" data-sound="longBreak"></audio>
-		</div>
+		</div> -->
+
 		<script src="main.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 	</body>
 </html>
