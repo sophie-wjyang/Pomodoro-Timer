@@ -143,6 +143,10 @@ function startTimer() {
 		total = timer.remainingTime.total;
 
 		if (total <= 0) {
+			// output the date and time that the timer stopped
+			const endTime = new Date();
+			console.log(`Session finished at ${endTime}.`);
+
 			clearInterval(interval);
 		}
 	}, 1000);
