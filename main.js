@@ -4,7 +4,7 @@
 // properties for different modes of the timer
 const timer = {
 	pomodoro: 45,
-	shortBreak: 5,
+	shortBreak: 1,
 	longBreak: 15,
 };
 
@@ -147,6 +147,8 @@ function startTimer() {
 			const endTime = new Date();
 			console.log(`Session finished at ${endTime}.`);
 
+			switchMode(timer.mode);
+			stopTimer();
 			clearInterval(interval);
 		}
 	}, 1000);
