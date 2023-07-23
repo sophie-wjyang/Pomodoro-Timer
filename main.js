@@ -3,9 +3,9 @@
 // TIMER VARIABLE
 // properties for different modes of the timer
 const timer = {
-	pomodoro: 45,
-	shortBreak: 1,
-	longBreak: 15,
+	pomodoro: 50,
+	shortBreak: 5,
+	longBreak: 10,
 };
 
 
